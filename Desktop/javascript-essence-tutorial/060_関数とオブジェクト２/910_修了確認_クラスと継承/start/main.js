@@ -43,6 +43,37 @@
  * login failed <- loginで失敗した場合
  */
 
+
+ class User {
+   constructor(name) {
+     this.name = name;
+     this.redirectto = '/'
+   }
+   login() {
+    console.log('User ' + this.name);
+    return true
+   }
+   checkRoll() {
+     console.log('you have normal roll');
+    return true
+   }
+   redirect() {
+    console.log('redirect : ' + this.redirectTo);
+    return true
+   }
+ }
+
+ class Admin extends User {
+   constructor(name) {
+     super(name);
+     this.redirectTo = '/admin'
+   }
+   checkRoll() {
+     console.log('you have admin roll');
+    return true
+   }
+ }
+
 function loginController(user) {
   if (user.login()
     && user.checkRoll()
@@ -52,3 +83,9 @@ function loginController(user) {
     console.log('login failed');
   }
 }
+
+const bob = new User('Bob');
+const tom = new Admin('Tom');
+
+loginController(bob);
+loginController(tom);
