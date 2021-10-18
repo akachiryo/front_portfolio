@@ -18,3 +18,6 @@ const moduleA = (function () {
     publicVal
   }
 })();
+
+moduleA.publicFn();
+console.log(moduleA.pubulicVal++);
