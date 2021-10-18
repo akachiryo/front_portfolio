@@ -19,6 +19,17 @@ class MyArray extends Array {
 		console.log(`%c ${label}`, 'color: blue; font-weight: 600;', this);
 		return this;
 	}
+
+	push(val) {
+		super.push(val);
+		return this;
+	}
+
+	forEach(callback) {
+		for(let i = 0; i <(this.length); i++) {
+			callback(this[i], i, this);
+		}
+	}
 }
 
 function double(v, i, obj) {
