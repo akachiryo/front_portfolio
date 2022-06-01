@@ -1,10 +1,7 @@
-FROM node:17-alpine3.14
+FROM node:12.18.3-alpine
 
-WORKDIR /var/www/html
+ENV APP_HOME /app
+RUN mkdir -p $APP_HOME
+WORKDIR $APP_HOME
 
-RUN apk update && \
-    npm install -g npm && \
-    npm install -g @vue/cli
-
-EXPOSE 8080
-ENV HOST 0.0.0.0
+RUN apk update && npm install -g @vue/cli

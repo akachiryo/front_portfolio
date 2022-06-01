@@ -1,7 +1,9 @@
 <template>
   <div id="app">
+    <h2>akachi</h2>
     <img alt="Vue logo" src="./assets/logo.png">
     <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <ProfileTop />
   </div>
 </template>
 
