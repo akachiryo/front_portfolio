@@ -2,7 +2,7 @@
   <div class="header">
     <p class="header-title">My Portfolio</p>
     <button class="login-button">
-      <span class="login-button-text">ログイン</span>
+      <p class="login-button-text">ログイン</p>
       <!-- ログイン -->
     </button>
   </div>
@@ -45,14 +45,6 @@
 }
 
 .login-button {
-  /* width: 152px;
-  height: 53px;
-  margin-top: 33.5px;
-  margin-right: 40px;
-  padding: 16, 40;
-  border-radius: 4px;
-  flex-shrink: 0; */
-  /* Auto layout */
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -68,7 +60,6 @@
 }
 
 .login-button-text {
-  font-family: Roboto, sans-serif;
   width: 72px;
   height: 21px;
   font-weight: 400;
