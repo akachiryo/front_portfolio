@@ -1,11 +1,11 @@
 <template>
-  <div class="header">
+  <header class="header">
     <p class="header-title">My Portfolio</p>
     <button class="login-button">
       <p class="login-button-text">ログイン</p>
       <!-- ログイン -->
     </button>
-  </div>
+  </header>
 </template>
 
 <style>
