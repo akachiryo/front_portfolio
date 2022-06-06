@@ -6,16 +6,16 @@
 </template>
 
 <script>
-import AppProfile from "../components/AppProfile.vue";
-import AppChart from "../components/AppChart.vue";
+import AppProfile from '../components/AppProfile.vue'
+import AppChart from '../components/AppChart.vue'
 
 export default {
-  name: "HomeView",
+  name: 'HomeView',
   components: {
     AppProfile,
-    AppChart,
-  },
-};
+    AppChart
+  }
+}
 </script>
 
 <style>

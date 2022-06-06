@@ -5,7 +5,9 @@
     </div>
     <div class="profile-introcuction">
       <div class="profile-introcuction-title">
-        <p class="profile-introcuction-title-text">自己紹介</p>
+        <p class="profile-introcuction-title-text">
+          自己紹介
+        </p>
       </div>
       <p class="profile-introcuction-text">
         ログインして、自己紹介文と画像を登録しましょう！

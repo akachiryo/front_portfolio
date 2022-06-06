@@ -1,13 +1,26 @@
 <template>
   <div>
     <content class="profile-skill">
-      <div class="chart-title-">
-        <p class="chart-title-text">スキルチャート</p>
+      <div class="chart-title">
+        <p class="chart-title-text">
+          スキルチャート
+        </p>
       </div>
-      <div class="skill-chart"></div>
+      <BarChart />
     </content>
   </div>
 </template>
+
+<script>
+import BarChart from './Bar.vue'
+
+export default {
+  name: 'App',
+  components: {
+    BarChart
+  }
+}
+</script>
 
 <style>
 .profile-skill {

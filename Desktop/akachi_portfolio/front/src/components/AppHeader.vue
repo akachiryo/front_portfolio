@@ -1,8 +1,12 @@
 <template>
   <header class="header">
-    <p class="header-title">My Portfolio</p>
+    <p class="header-title">
+      My Portfolio
+    </p>
     <button class="login-button">
-      <p class="login-button-text">ログイン</p>
+      <p class="login-button-text">
+        ログイン
+      </p>
       <!-- ログイン -->
     </button>
   </header>
