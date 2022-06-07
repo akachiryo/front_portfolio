@@ -5,8 +5,8 @@
       <wrapper>
         <router-view />
       </wrapper>
+      <AppFooter />
     </main>
-    <AppFooter />
   </div>
 </template>
 

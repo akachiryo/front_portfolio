@@ -43,11 +43,11 @@ export default {
     },
     width: {
       type: Number,
-      default: 400
+      default: 1046
     },
     height: {
       type: Number,
-      default: 400
+      default: 500
     },
     cssClasses: {
       default: '',
@@ -66,24 +66,25 @@ export default {
     return {
       chartData: {
         labels: [
-          'January',
-          'February',
-          'March',
-          'April',
-          'May',
-          'June',
-          'July',
-          'August',
-          'September',
-          'October',
-          'November',
-          'December'
+          'バックエンド',
+          'フロントエンド',
+          'インフラ'
         ],
         datasets: [
           {
-            label: 'Data One',
-            backgroundColor: '#f87979',
-            data: [40, 20, 12, 39, 10, 40, 39, 80, 40, 20, 12, 11]
+            label: 'Ruby',
+            backgroundColor: '#FFCCCC',
+            data: [40, 50, 60]
+          },
+          {
+            label: 'Rails',
+            backgroundColor: '#FFDBC9',
+            data: [20, 70, 80]
+          },
+          {
+            label: 'MySQL',
+            backgroundColor: '#FFFFCC',
+            data: [10, 40, 30]
           }
         ]
       },

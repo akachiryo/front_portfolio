@@ -4,7 +4,10 @@
       My Portfolio
     </p>
     <button class="login-button">
-      <p class="login-button-text">
+      <p
+        class="login-button-text"
+        @click="toLoginPage"
+      >
         ログイン
       </p>
       <!-- ログイン -->
@@ -12,14 +15,18 @@
   </header>
 </template>
 
+<script>
+export default {
+  methods: {
+    toLoginPage () {
+      this.$router.push('about')
+    }
+  }
+}
+</script>
+
 <style>
 .header {
-  /* width: 1440px;
-  height: 120px;
-  padding: 0, 40;
-  display: flex;
-  justify-content: space-between;
-  /* background-color: #1b5678; */
   display: flex;
   flex-direction: row;
   justify-content: space-between;
