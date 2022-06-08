@@ -19,7 +19,7 @@
 export default {
   methods: {
     toLoginPage () {
-      this.$router.push('about')
+      this.$router.push('login')
     }
   }
 }
