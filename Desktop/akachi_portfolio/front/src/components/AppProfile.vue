@@ -9,12 +9,30 @@
           自己紹介
         </p>
       </div>
-      <p class="profile-introcuction-text">
-        ログインして、自己紹介文と画像を登録しましょう！
-      </p>
+      <div v-if="logging">
+        <p class="profile-introcuction-text">
+          ログインして、自己紹介文と画像を登録しましょう！
+        </p>
+        <h2>ログイン中</h2>
+      </div>
+      <div v-else>
+        <p class="profile-introcuction-text">
+          ログインして、自己紹介文と画像を登録しましょう！
+        </p>
+      </div>
     </div>
   </content>
 </template>
+
+<script>
+export default {
+  computed: {
+    logging () {
+      return this.$store.getters['auth/currentUser']
+    }
+  }
+}
+</script>
 
 <style>
 .profile-avator-introduction {

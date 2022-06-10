@@ -4,20 +4,27 @@
       ログイン
     </p>
     <div class="login-form">
-      <div class="form-item">
-        <label for="email">メールアドレス</label>
+      <div class="login-form-item">
+        <label
+          for="email"
+          class="login-form-item-title"
+        >メールアドレス</label>
         <input
           id="email"
           v-model="email"
           type="text"
+          class="login-form-item-input"
         >
       </div>
-      <div class="form-item">
-        <label for="password">パスワード</label>
+      <div class="login-form-item">
+        <label
+          for="password"
+          class="login-form-item-title">パスワード</label>
         <input
           id="password"
           v-model="password"
           type="password"
+          class="login-form-item-input"
         >
       </div>
       <div clas="form-item">
@@ -96,5 +103,51 @@ export default {
   height: 245px;
   left: 480px;
   top: 328px;
+}
+
+.login-form-item {
+  border-bottom: 1px solid #000000;
+}
+
+.login-form-item-title {
+  width: 100px;
+  height: 12px;
+
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 12px;
+  /* identical to box height, or 100% */
+
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.15px;
+
+  /* text / secondary */
+
+  color: rgba(0, 0, 0, 0.54);
+}
+
+.login-form-item-input {
+  width: 480px;
+  border: none;
+}
+
+.login-btn {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 16px 80px;
+
+  width: 268px;
+  height: 53px;
+
+  /* primary-color */
+  color: white;
+  background: #1B5678;
+  border-radius: 4px;
+  border: none;
 }
 </style>
