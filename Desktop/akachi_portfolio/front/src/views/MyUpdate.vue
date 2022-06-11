@@ -25,6 +25,7 @@
           type="file"
           id="form-image"
           class="my-update-avatar-input"
+          accept="image/*,.png,.jpg,.jpeg,.gif"
           @change="selectedFile"
         >
       </div>
@@ -65,7 +66,7 @@ export default {
       // 選択された File の情報を保存しておく
       e.preventDefault()
       const files = e.target.files
-      this.uploadFile = files[0]
+      this.user.avatar = files[0]
     }
   }
 }
