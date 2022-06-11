@@ -13,7 +13,10 @@
         <p class="profile-introcuction-text">
           ログインして、自己紹介文と画像を登録しましょう！
         </p>
-        <h2>ログイン中</h2>
+        <button
+          class="to-updateview-btn"
+          @click="toMyUpdatePage"
+        >自己紹介を編集する</button>
       </div>
       <div v-else>
         <p class="profile-introcuction-text">
@@ -29,6 +32,11 @@ export default {
   computed: {
     logging () {
       return this.$store.getters['auth/currentUser']
+    }
+  },
+  methods: {
+    toMyUpdatePage () {
+      this.$router.push('/myupdate')
     }
   }
 }
@@ -102,5 +110,23 @@ export default {
 
 .profile-introcuction-text {
   color: rgba(255, 0, 0, 0.75);
+}
+
+.to-updateview-btn {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 16px 40px;
+
+  width: 242px;
+  height: 53px;
+
+  /* primary-color */
+
+  background: #1B5678;
+  border-radius: 4px;
+  border: none;
+  color: white;
 }
 </style>

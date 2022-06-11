@@ -1,6 +1,9 @@
 <template>
   <header class="header">
-    <p class="header-title">
+    <p
+      class="header-title"
+      @click="toHome"
+    >
       My Portfolio
     </p>
     <button class="login-button">
@@ -20,6 +23,9 @@ export default {
   methods: {
     toLoginPage () {
       this.$router.push('login')
+    },
+    toHome () {
+      this.$router.push('/')
     }
   }
 }
