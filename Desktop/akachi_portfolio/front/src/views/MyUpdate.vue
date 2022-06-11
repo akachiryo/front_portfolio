@@ -9,7 +9,7 @@
         >自己紹介文</label>
         <textarea
           id="introduction"
-          v-model="introduction"
+          v-model="user.introduction"
           rows="5"
           cols="45"
           class="my-update-form-item-input"
@@ -21,7 +21,12 @@
       <div class="my-update-form-item">
         <p class="my-update-avatar-title">アバター画像</p>
         <label for="form-image" class="my-update-avatar">画像ファイルを添付する</label>
-        <input type="file" id="form-image" class="my-update-avatar-input">
+        <input
+          type="file"
+          id="form-image"
+          class="my-update-avatar-input"
+          @change="selectedFile"
+        >
       </div>
       <div clas="my-update-form-item-btn">
         <button
@@ -49,11 +54,18 @@ export default {
     myUpdate () {
       const userParams = {
         user: {
-          name: this.user.introduction,
-          introduction: this.user.avatar
+          introduction: this.user.introduction,
+          avatar: this.user.avatar
         }
       }
       this.$store.dispatch('auth/updateProfile', userParams)
+      this.$router.push('/')
+    },
+    selectedFile (e) {
+      // 選択された File の情報を保存しておく
+      e.preventDefault()
+      const files = e.target.files
+      this.uploadFile = files[0]
     }
   }
 }
