@@ -36,7 +36,7 @@ const actions = {
     commit('CLEAR_CURRENT_USER')
   },
   async updateProfile ({ commit, state }, userParams) {
-    axios.defaults.baseURL = process.env.VUE_APP_API_ENDPOINT
+    // axios.defaults.baseURL = process.env.VUE_APP_API_ENDPOINT
     const res = await axios.patch('/api/v1/me/account', userParams)
     commit('SET_CURRENT_USER', {
       ...res.data,

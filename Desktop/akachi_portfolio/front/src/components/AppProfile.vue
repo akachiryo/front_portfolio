@@ -16,7 +16,9 @@
         <button
           class="to-updateview-btn"
           @click="toMyUpdatePage"
-        >自己紹介を編集する</button>
+        >
+          自己紹介を編集する
+        </button>
       </div>
       <div v-else>
         <p class="profile-introcuction-text">

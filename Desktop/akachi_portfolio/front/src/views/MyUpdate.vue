@@ -19,12 +19,11 @@
         </p>
       </div>
       <div class="my-update-form-item">
-        <label for="avatar">
-          画像ファイルを添付する
-        </label>
-        <input type="file" name="avatar">
+        <p class="my-update-avatar-title">アバター画像</p>
+        <label for="form-image" class="my-update-avatar">画像ファイルを添付する</label>
+        <input type="file" id="form-image" class="my-update-avatar-input">
       </div>
-      <div clas="my-update-form-item">
+      <div clas="my-update-form-item-btn">
         <button
           class="my-update-btn"
           @click="myUpdate"
@@ -36,11 +35,34 @@
   </div>
 </template>
 
+<script>
+export default {
+  data () {
+    return {
+      user: null
+    }
+  },
+  created () {
+    this.user = { ...this.$store.getters['auth/currentUser'] }
+  },
+  methods: {
+    myUpdate () {
+      const userParams = {
+        user: {
+          name: this.user.introduction,
+          introduction: this.user.avatar
+        }
+      }
+      this.$store.dispatch('auth/updateProfile', userParams)
+    }
+  }
+}
+</script>
+
 <style>
 .my-update-form {
   display: flex;
   flex-direction: column;
-  align-items: center;
   padding: 0px;
   gap: 48px;
 
@@ -88,8 +110,8 @@
 
   width: 480px;
   height: 95px;
-
   border: none;
+  border-bottom: 1px solid #000000;
 }
 
 .my-update-form-item-word-limit {
@@ -109,15 +131,55 @@
   color: rgba(0, 0, 0, 0.54);
 }
 
+.my-update-avatar-title {
+  width: 73px;
+  height: 12px;
+
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 12px;
+  /* identical to box height, or 100% */
+
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.15px;
+
+  /* text / secondary */
+
+  color: rgba(0, 0, 0, 0.54);
+
+}
+
+.my-update-avatar {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 24px;
+  width: 202px;
+  height: 32px;
+  left: 0px;
+  top: 16px;
+
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+}
+
+.my-update-avatar-input {
+  display: none;
+}
+
 .my-update-btn {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   padding: 16px 80px;
-
   width: 322px;
   height: 53px;
+  margin: auto;
 
   /* primary-color */
 

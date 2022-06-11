@@ -19,7 +19,8 @@
       <div class="login-form-item">
         <label
           for="password"
-          class="login-form-item-title">パスワード</label>
+          class="login-form-item-title"
+        >パスワード</label>
         <input
           id="password"
           v-model="password"
