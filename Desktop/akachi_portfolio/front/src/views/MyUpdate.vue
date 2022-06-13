@@ -64,9 +64,17 @@ export default {
     },
     selectedFile (e) {
       // 選択された File の情報を保存しておく
+      const reader = new FileReader()
       e.preventDefault()
-      const files = e.target.files
-      this.user.avatar = files[0]
+      const avatar = e.target.files[0]
+      if (avatar) {
+        reader.readAsDataURL(avatar)
+      } else {
+        this.user.avatar = ''
+      }
+      reader.onload = () => {
+        this.user.avatar = reader.result
+      }
     }
   }
 }
