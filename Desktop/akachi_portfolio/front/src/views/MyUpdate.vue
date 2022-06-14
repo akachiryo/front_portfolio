@@ -56,7 +56,7 @@ export default {
       const userParams = {
         user: {
           introduction: this.user.introduction,
-          avatar: this.user.avatar
+          image: this.user.avatar
         }
       }
       this.$store.dispatch('auth/updateProfile', userParams)
