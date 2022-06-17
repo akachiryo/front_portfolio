@@ -42,17 +42,6 @@ const actions = {
       ...res.data,
       ...{ token: state.currentUser.token }
     })
-  },
-  async createPost ({ commit }, post) {
-    try {
-      const res = await axios.patch('http://localhost:3000/api/users/1', { 'Content-Type': 'multipart/form-data' })
-      commit('SET_CURRENT_USER', {
-        ...res.data,
-        ...{ token: state.currentUser.token }
-      })
-    } catch (e) {
-      console.error(e)
-    }
   }
 }
 

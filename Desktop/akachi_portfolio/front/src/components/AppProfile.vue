@@ -1,7 +1,10 @@
 <template>
   <content class="profile-avator-introduction">
-    <div class="profile-avatar">
-      <!-- <img src="" alt=""> -->
+    <div v-if="logging">
+      <img :src="userAvatar" class="profile-avatar">
+    </div>
+    <div v-else>
+      <div class="profile-avatar"></div>
     </div>
     <div class="profile-introcuction">
       <div class="profile-introcuction-title">
@@ -10,8 +13,8 @@
         </p>
       </div>
       <div v-if="logging">
-        <p class="profile-introcuction-text">
-          ログインして、自己紹介文と画像を登録しましょう！
+        <p class="profile-introcuction-text-logined">
+          {{ userIntroduction }}
         </p>
         <button
           class="to-updateview-btn"
@@ -34,6 +37,12 @@ export default {
   computed: {
     logging () {
       return this.$store.getters['auth/currentUser']
+    },
+    userIntroduction () {
+      return this.$store.getters['auth/currentUser'].introduction
+    },
+    userAvatar () {
+      return this.$store.getters['auth/currentUser'].avatar
     }
   },
   methods: {
@@ -112,6 +121,16 @@ export default {
 
 .profile-introcuction-text {
   color: rgba(255, 0, 0, 0.75);
+}
+
+.profile-introcuction-text-logined {
+  width: 520px;
+  height: 81px;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 150%;
+  text-align: left;
+  color: rgba(0, 0, 0, 0.75);
 }
 
 .to-updateview-btn {

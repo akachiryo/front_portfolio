@@ -1,6 +1,8 @@
 <template>
   <div class="my-update">
-    <p class="my-update-title">自己紹介を編集する</p>
+    <p class="my-update-title">
+      自己紹介を編集する
+    </p>
     <div class="my-update-form">
       <div class="my-update-form-item">
         <label
@@ -13,17 +15,19 @@
           rows="5"
           cols="45"
           class="my-update-form-item-input"
-        ></textarea>
+        />
         <p class="my-update-form-item-word-limit">
           200文字以上、800文字未満で入力してください
         </p>
       </div>
       <div class="my-update-form-item">
-        <p class="my-update-avatar-title">アバター画像</p>
+        <p class="my-update-avatar-title">
+          アバター画像
+        </p>
         <label for="form-image" class="my-update-avatar">画像ファイルを添付する</label>
         <input
-          type="file"
           id="form-image"
+          type="file"
           class="my-update-avatar-input"
           accept="image/*,.png,.jpg,.jpeg,.gif"
           @change="selectedFile"
