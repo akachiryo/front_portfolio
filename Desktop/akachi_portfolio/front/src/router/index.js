@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import LoginView from '../views/LoginView.vue'
 import MyUpdate from '../views/MyUpdate.vue'
+import SkillEdit from '../views/SkillEdit.vue'
 
 Vue.use(VueRouter)
 
@@ -21,6 +22,11 @@ const routes = [
     path: '/myupdate',
     name: 'myupdate',
     component: MyUpdate
+  },
+  {
+    path: '/skilledit',
+    name: 'skilledit',
+    component: SkillEdit
   }
 ]
 

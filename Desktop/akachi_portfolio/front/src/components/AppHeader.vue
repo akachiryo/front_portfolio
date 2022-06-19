@@ -6,6 +6,12 @@
     >
       My Portfolio
     </p>
+    <p
+      class="header-title"
+      @click="toSkill"
+    >
+      skilledit
+    </p>
     <button class="login-button">
       <p
         class="login-button-text"
@@ -26,6 +32,9 @@ export default {
     },
     toHome () {
       this.$router.push('/')
+    },
+    toSkill () {
+      this.$router.push('/skilledit')
     }
   }
 }
