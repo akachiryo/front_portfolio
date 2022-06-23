@@ -27,17 +27,13 @@ const mutations = {
 
 const actions = {
   async login ({ commit }, sessionParams) {
-    axios.defaults.baseURL = process.env.VUE_APP_API_ENDPOIN
-    const res = await axios.post('/api/session', sessionParams)
+    // axios.defaults.baseURL = process.env.VUE_APP_API_ENDPOIN
+    const res = await axios.post('http://localhost:3000/api/session', sessionParams)
     commit('SET_CURRENT_USER', res.data)
-  },
-
-  logout ({ commit }) {
-    commit('CLEAR_CURRENT_USER')
   },
   async updateProfile ({ commit, state }, userParams) {
     axios.defaults.baseURL = process.env.VUE_APP_API_ENDPOINT
-    const res = await axios.patch('/users/1', userParams)
+    const res = await axios.patch('/api/users/1', userParams)
     commit('SET_CURRENT_USER', {
       ...res.data,
       ...{ token: state.currentUser.token }

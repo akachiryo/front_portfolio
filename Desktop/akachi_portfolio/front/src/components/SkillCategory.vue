@@ -31,6 +31,24 @@
   </div>
 </template>
 
+<script>
+import { mapGetters } from 'vuex'
+
+export default {
+  // created: {
+  //   fetchSkillTypes () {
+  //     this.$store.dispatch('skill/fetchSkillTypes')
+  //   }
+  // },
+  computed: {
+    ...mapGetters({
+      skill_types: 'skill/skillTypes',
+      currentUser: 'auth/currentUser'
+    })
+  }
+}
+</script>
+
 <style>
 .category {
   box-sizing: border-box;

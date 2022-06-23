@@ -49,15 +49,6 @@ export default {
     }
   },
   methods: {
-    // async login () {
-    //   const sessionParams = {
-    //     session: {
-    //       email: this.email,
-    //       password: this.password
-    //     }
-    //   }
-    //   await this.$store.dispatch('auth/login', sessionParams)
-    // }
     async login () {
       if (this.email && this.password) {
         try {
