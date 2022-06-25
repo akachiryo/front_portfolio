@@ -1,7 +1,36 @@
-// import axios from 'axios'
+import axios from 'axios'
 
 const state = {
-  skillTypes: null
+  skillTypes: [
+    {
+      id: 1,
+      name: 'インフラ',
+      skills: [
+        {
+          id: 1,
+          user_id: 1,
+          name: 'ruby',
+          level: 50
+        },
+        {
+          id: 2,
+          user_id: 1,
+          name: 'rails',
+          level: 80
+        }
+      ]
+    },
+    {
+      id: 2,
+      name: 'バックエンド',
+      skills: []
+    },
+    {
+      id: 3,
+      name: 'フロントエンド',
+      skills: []
+    }
+  ]
 }
 
 const getters = {
@@ -10,41 +39,24 @@ const getters = {
   }
 }
 
-// const mutations = {
-//   SET_CURRENT_USER: (state, data) => {
-//     state.currentUser = data
-//     localStorage.setItem('currentUser', JSON.stringify(data))
-//     axios.defaults.headers.common.Authorization = `Bearer ${data.token}`
-//   },
-//   CLEAR_CURRENT_USER: () => {
-//     localStorage.removeItem('currentUser')
-//     localStorage.setItem('currentUser', {
-//       id: null,
-//       admin: null
-//     })
-//   }
-// }
+const mutations = {
+  SET_SKILL_TYPES: (state, data) => {
+    state.skillTypes = data
+  }
+}
 
-// const actions = {
-//   async login ({ commit }, sessionParams) {
-//     // axios.defaults.baseURL = process.env.VUE_APP_API_ENDPOIN
-//     const res = await axios.post('http://localhost:3000/api/session', sessionParams)
-//     commit('SET_CURRENT_USER', res.data)
-//   },
-//   async updateProfile ({ commit, state }, userParams) {
-//     axios.defaults.baseURL = process.env.VUE_APP_API_ENDPOINT
-//     const res = await axios.patch('/api/users/1', userParams)
-//     commit('SET_CURRENT_USER', {
-//       ...res.data,
-//       ...{ token: state.currentUser.token }
-//     })
-//   }
-// }
+const actions = {
+  async fetchSkillTypes ({ commit }) {
+    // axios.defaults.baseURL = process.env.VUE_APP_API_ENDPOIN
+    const res = await axios.get('http://localhost:3000/api/skill_types/1')
+    commit('SET_SKILL_TYPES', res.data)
+  }
+}
 
 export default {
   namespaced: true,
   state,
-  // mutations,
-  // actions,
+  mutations,
+  actions,
   getters
 }

@@ -13,7 +13,22 @@
           </tr>
           <tr class="category-table-row">
             <td class="category-table-culum">Ruby</td>
-            <td class="category-table-culum">40</td>
+            <td class="category-table-culum">
+              <select
+                size="1"
+                v-model="skills.level"
+              >
+                <option
+                  v-for="n in 100"
+                  :key="n"
+                >
+                  {{ n }}
+                </option>
+              </select>
+              <!-- <select name="sample">
+                <option value="1">sample</option>
+              </select> -->
+            </td>
             <td class="category-table-culum">
               <button class="category-table-save-button">
                 習得レベルを保存する
@@ -32,19 +47,28 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapGetters, mapActions } from 'vuex'
 
 export default {
-  // created: {
-  //   fetchSkillTypes () {
-  //     this.$store.dispatch('skill/fetchSkillTypes')
-  //   }
-  // },
+  data () {
+    return {
+      skill_types: null,
+      skills: {
+        level: null
+      }
+    }
+  },
+  created: {
+    // this.fetchSkillTypes ()
+  },
   computed: {
     ...mapGetters({
       skill_types: 'skill/skillTypes',
       currentUser: 'auth/currentUser'
     })
+  },
+  methohs: {
+    ...mapActions(['fetchSkillTypes'])
   }
 }
 </script>
@@ -129,6 +153,7 @@ border-radius: 8px;
   /* primary-color */
   color: white;
   background: #1B5678;
+  border: none;
   border-radius: 4px;
 }
 
@@ -233,12 +258,6 @@ border-radius: 8px;
   border: 1px solid #1B5678;
   border-radius: 4px;
 
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 16px;
-
-  /* primary-color */
-
   color: #1B5678;
 }
 
@@ -255,12 +274,10 @@ border-radius: 8px;
   /* secondary-color */
 
   background: #EE6969;
+  border: none;
   border-radius: 4px;
 
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 16px;
-
   color: #FFFFFF;
+
 }
 </style>
