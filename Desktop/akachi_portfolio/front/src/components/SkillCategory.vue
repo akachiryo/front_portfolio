@@ -1,46 +1,48 @@
 <template>
-  <div class="category">
-    <div class="category-content">
-      <div class="category-title">
-        <p class="category-title-text">タイトル</p>
-        <button class="category-title-button">スキルを追加する</button>
-      </div>
-      <div class="category-card">
-        <table class="category-table">
-          <tr class="category-table-header">
-            <th class="category-table-title">習得スキル</th>
-            <th class="category-table-title">習得レベル</th>
-          </tr>
-          <tr class="category-table-row">
-            <td class="category-table-culum">Ruby</td>
-            <td class="category-table-culum">
-              <select
-                size="1"
-                v-model="skills.level"
-              >
-                <option
-                  v-for="n in 100"
-                  :key="n"
+  <div>
+    <div class="category" v-for="skillType in skill_types" :key="skillType.id">
+      <div class="category-content">
+        <div class="category-title">
+          <p class="category-title-text">タイトル</p>
+          <button class="category-title-button">スキルを追加する</button>
+        </div>
+        <div class="category-card">
+          <table class="category-table">
+            <tr class="category-table-header">
+              <th class="category-table-title">習得スキル</th>
+              <th class="category-table-title">習得レベル</th>
+            </tr>
+            <tr class="category-table-row" v-for="skill in skillType.skills" :key="skill.id">
+              <td class="category-table-culum">Ruby</td>
+              <td class="category-table-culum">
+                <select
+                  size="1"
+                  v-model="skillType.level"
                 >
-                  {{ n }}
-                </option>
-              </select>
-              <!-- <select name="sample">
-                <option value="1">sample</option>
-              </select> -->
-            </td>
-            <td class="category-table-culum">
-              <button class="category-table-save-button">
-                習得レベルを保存する
-              </button>
-            </td>
-            <td class="category-table-culum">
-              <button class="category-table-delete-button">
-                スキルを削除する
-              </button>
-            </td>
-          </tr>
-        </table>
+                  <option
+                    v-for="n in 100"
+                    :key="n"
+                  >
+                    {{ n }}
+                  </option>
+                </select>
+                <!-- <select name="sample">
+                  <option value="1">sample</option>
+                </select> -->
+              </td>
+              <td class="category-table-culum">
+                <button class="category-table-save-button">
+                  習得レベルを保存する
+                </button>
+              </td>
+              <td class="category-table-culum">
+                <button class="category-table-delete-button">
+                  スキルを削除する
+                </button>
+              </td>
+            </tr>
+          </table>
+        </div>
       </div>
     </div>
   </div>
@@ -52,10 +54,10 @@ import { mapGetters, mapActions } from 'vuex'
 export default {
   data () {
     return {
-      skill_types: null,
-      skills: {
-        level: null
-      }
+      // skill_types: null
+      // skills: {
+      //   level: null
+      // }
     }
   },
   created: {
