@@ -13,11 +13,11 @@
               <th class="category-table-title">習得レベル</th>
             </tr>
             <tr class="category-table-row" v-for="skill in skillType.skills" :key="skill.id">
-              <td class="category-table-culum">Ruby</td>
+              <td class="category-table-culum">{{ skill.name }}</td>
               <td class="category-table-culum">
                 <select
                   size="1"
-                  v-model="skillType.level"
+                  v-model="skill.level"
                 >
                   <option
                     v-for="n in 100"
@@ -54,10 +54,35 @@ import { mapGetters, mapActions } from 'vuex'
 export default {
   data () {
     return {
-      // skill_types: null
-      // skills: {
-      //   level: null
+      // skillTypes: [{
+      //   id: 1,
+      //   name: 'インフラ',
+      //   skills: [
+      //     {
+      //       id: 1,
+      //       user_id: 1,
+      //       name: 'ruby',
+      //       level: 50
+      //     },
+      //     {
+      //       id: 2,
+      //       user_id: 1,
+      //       name: 'rails',
+      //       level: 80
+      //     }
+      //   ]
+      // },
+      // {
+      //   id: 2,
+      //   name: 'バックエンド',
+      //   skills: []
+      // },
+      // {
+      //   id: 3,
+      //   name: 'フロントエンド',
+      //   skills: []
       // }
+      // ]
     }
   },
   created: {
@@ -69,7 +94,7 @@ export default {
       currentUser: 'auth/currentUser'
     })
   },
-  methohs: {
+  methods: {
     ...mapActions(['fetchSkillTypes'])
   }
 }
