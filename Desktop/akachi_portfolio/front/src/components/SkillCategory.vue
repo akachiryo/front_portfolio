@@ -31,12 +31,18 @@
                 </select> -->
               </td>
               <td class="category-table-culum">
-                <button class="category-table-save-button">
+                <button
+                  class="category-table-save-button"
+                  @click="updateSkill(skill.id, skill.level)"
+                >
                   習得レベルを保存する
                 </button>
               </td>
               <td class="category-table-culum">
-                <button class="category-table-delete-button">
+                <button
+                  class="category-table-delete-button"
+                  @click="deleteSkill(skill.id)"
+                >
                   スキルを削除する
                 </button>
               </td>
@@ -95,7 +101,21 @@ export default {
     })
   },
   methods: {
-    ...mapActions(['fetchSkillTypes'])
+    ...mapActions(['fetchSkillTypes']),
+    async updateSkill (skillId, skillLevel) {
+      // axios.defaults.baseURL = process.env.VUE_APP_API_ENDPOINT
+      const skillParams = {
+        skill: {
+          level: skillLevel
+        }
+      }
+      await this.$store.dispatch('skill/updateSkill', { skillId, skillParams })
+    },
+    async deleteSkill (skillId) {
+      if (confirm('削除しますか？')) {
+        await this.$store.dispatch('skill/deleteSkill', skillId)
+      }
+    }
   }
 }
 </script>

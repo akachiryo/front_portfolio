@@ -1,36 +1,7 @@
 import axios from 'axios'
 
 const state = {
-  skillTypes: [
-    {
-      id: 1,
-      name: 'インフラ',
-      skills: [
-        {
-          id: 1,
-          user_id: 1,
-          name: 'ruby',
-          level: 50
-        },
-        {
-          id: 2,
-          user_id: 1,
-          name: 'rails',
-          level: 80
-        }
-      ]
-    },
-    {
-      id: 2,
-      name: 'バックエンド',
-      skills: []
-    },
-    {
-      id: 3,
-      name: 'フロントエンド',
-      skills: []
-    }
-  ]
+  skillTypes: null
 }
 
 const getters = {
@@ -41,7 +12,7 @@ const getters = {
 
 const mutations = {
   SET_SKILL_TYPES: (state, data) => {
-    state.skillTypes = data
+    state.skillTypes = data.skill_types
   }
 }
 
@@ -49,6 +20,16 @@ const actions = {
   async fetchSkillTypes ({ commit }) {
     // axios.defaults.baseURL = process.env.VUE_APP_API_ENDPOIN
     const res = await axios.get('http://localhost:3000/api/skill_types/1')
+    commit('SET_SKILL_TYPES', res.data)
+  },
+  async updateSkill ({ commit }, { skillId, skillParams }) {
+    // axios.defaults.baseURL = process.env.VUE_APP_API_ENDPOINT
+    const res = await axios.patch(`http://localhost:3000/api/skills/${skillId}`, skillParams)
+    commit('SET_SKILL_TYPES', res.data)
+  },
+  async deleteSkill ({ commit }, skillId) {
+    // axios.defaults.baseURL = process.env.VUE_APP_API_ENDPOINT
+    const res = await axios.delete(`http://localhost:3000/api/skills/${skillId}`)
     commit('SET_SKILL_TYPES', res.data)
   }
 }

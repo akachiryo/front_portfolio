@@ -34,6 +34,7 @@ export default {
       this.$router.push('/')
     },
     toSkill () {
+      this.$store.dispatch('skill/fetchSkillTypes')
       this.$router.push('/skilledit')
     }
   }
