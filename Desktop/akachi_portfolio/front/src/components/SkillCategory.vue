@@ -3,8 +3,13 @@
     <div class="category" v-for="skillType in skill_types" :key="skillType.id">
       <div class="category-content">
         <div class="category-title">
-          <p class="category-title-text">タイトル</p>
-          <button class="category-title-button">スキルを追加する</button>
+          <p class="category-title-text">{{ skillType.name }}</p>
+          <button
+            class="category-title-button"
+            @click="openCreateSkill"
+          >
+          スキルを追加する
+          </button>
         </div>
         <div class="category-card">
           <table class="category-table">
@@ -26,9 +31,6 @@
                     {{ n }}
                   </option>
                 </select>
-                <!-- <select name="sample">
-                  <option value="1">sample</option>
-                </select> -->
               </td>
               <td class="category-table-culum">
                 <button
@@ -110,11 +112,16 @@ export default {
         }
       }
       await this.$store.dispatch('skill/updateSkill', { skillId, skillParams })
+      this.$emit('openSaveSkill')
     },
     async deleteSkill (skillId) {
       if (confirm('削除しますか？')) {
         await this.$store.dispatch('skill/deleteSkill', skillId)
+        this.$emit('openDeleteSkill')
       }
+    },
+    openCreateSkill () {
+      this.$emit('openCreateSkill')
     }
   }
 }
