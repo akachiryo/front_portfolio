@@ -5,8 +5,18 @@
         <p class="chart-title-text">
           スキルチャート
         </p>
+        <div v-if="logging">
+          <button
+            class="to-skill-edit-btn"
+            @click="toSkillEditPage"
+          >
+            自己紹介を編集する
+          </button>
+        </div>
       </div>
-      <BarChart />
+      <div class="bar-chart">
+        <BarChart />
+      </div>
     </content>
   </div>
 </template>
@@ -18,6 +28,17 @@ export default {
   name: 'App',
   components: {
     BarChart
+  },
+  computed: {
+    logging () {
+      return this.$store.getters['auth/currentUser']
+    }
+  },
+  methods: {
+    toSkillEditPage () {
+      this.$store.dispatch('skill/fetchSkillTypes')
+      this.$router.push('/skilledit')
+    }
   }
 }
 </script>
@@ -34,7 +55,10 @@ export default {
 }
 
 .chart-title {
-  width: 252px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
   height: 42px;
   font-weight: 700;
   font-size: 36px;
@@ -47,8 +71,32 @@ export default {
   height: 42px;
   font-weight: 700;
   font-size: 36px;
+  margin-top: 200px;
+  margin-bottom: 50px;
   line-height: 42px;
   color: rgba(0, 0, 0, 0.75);
   border-bottom: 2px solid rgba(0, 0, 0, 0.5);
+}
+
+.to-skill-edit-btn {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 16px 40px;
+
+  width: 242px;
+  height: 53px;
+
+  /* primary-color */
+
+  background: #1B5678;
+  border-radius: 4px;
+  border: none;
+  color: white;
+}
+
+.bar-chart {
+   margin-top: 100px;
 }
 </style>
