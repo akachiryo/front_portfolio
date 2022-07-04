@@ -57,10 +57,10 @@ main {
   top: 120px;
 }
 
-wrapper {
+.wrapper {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: flex-center;
   padding: 0px;
   gap: 120px;
   width: 1046px;

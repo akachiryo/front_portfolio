@@ -33,7 +33,7 @@
           @change="selectedFile"
         >
       </div>
-      <div clas="my-update-form-item-btn">
+      <div class="my-update-form-item-btn">
         <button
           class="my-update-btn"
           @click="myUpdate"

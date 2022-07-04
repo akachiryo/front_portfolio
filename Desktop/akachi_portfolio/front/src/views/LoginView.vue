@@ -28,7 +28,7 @@
           class="login-form-item-input"
         >
       </div>
-      <div clas="form-item">
+      <div class="form-item">
         <button
           class="login-btn"
           @click="login"

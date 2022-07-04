@@ -4,6 +4,7 @@ import HomeView from '../views/HomeView.vue'
 import LoginView from '../views/LoginView.vue'
 import MyUpdate from '../views/MyUpdate.vue'
 import SkillEdit from '../views/SkillEdit.vue'
+import CreateSkill from '../views/CreateSkill.vue'
 
 Vue.use(VueRouter)
 
@@ -25,8 +26,15 @@ const routes = [
   },
   {
     path: '/skilledit',
-    name: 'skilledit',
-    component: SkillEdit
+    name: 'SkillEdit',
+    component: SkillEdit,
+    props: true
+  },
+  {
+    path: '/createskill',
+    name: 'CreateSkill',
+    component: CreateSkill,
+    props: true
   }
 ]
 

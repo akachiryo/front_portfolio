@@ -6,8 +6,9 @@
           <p class="category-title-text">{{ skillType.name }}</p>
           <button
             class="category-title-button"
-            @click="openCreateSkill"
+            @click="toCreateSkill(skillType.id, skillType.name)"
           >
+            <!-- @click="openCreateSkill" -->
           スキルを追加する
           </button>
         </div>
@@ -35,7 +36,7 @@
               <td class="category-table-culum">
                 <button
                   class="category-table-save-button"
-                  @click="updateSkill(skill.id, skill.level)"
+                  @click="updateSkill(skill.id, skill.level, skill.name)"
                 >
                   習得レベルを保存する
                 </button>
@@ -43,7 +44,7 @@
               <td class="category-table-culum">
                 <button
                   class="category-table-delete-button"
-                  @click="deleteSkill(skill.id)"
+                  @click="deleteSkill(skill.id, skill.name)"
                 >
                   スキルを削除する
                 </button>
@@ -60,42 +61,6 @@
 import { mapGetters, mapActions } from 'vuex'
 
 export default {
-  data () {
-    return {
-      // skillTypes: [{
-      //   id: 1,
-      //   name: 'インフラ',
-      //   skills: [
-      //     {
-      //       id: 1,
-      //       user_id: 1,
-      //       name: 'ruby',
-      //       level: 50
-      //     },
-      //     {
-      //       id: 2,
-      //       user_id: 1,
-      //       name: 'rails',
-      //       level: 80
-      //     }
-      //   ]
-      // },
-      // {
-      //   id: 2,
-      //   name: 'バックエンド',
-      //   skills: []
-      // },
-      // {
-      //   id: 3,
-      //   name: 'フロントエンド',
-      //   skills: []
-      // }
-      // ]
-    }
-  },
-  created: {
-    // this.fetchSkillTypes ()
-  },
   computed: {
     ...mapGetters({
       skill_types: 'skill/skillTypes',
@@ -104,7 +69,7 @@ export default {
   },
   methods: {
     ...mapActions(['fetchSkillTypes']),
-    async updateSkill (skillId, skillLevel) {
+    async updateSkill (skillId, skillLevel, skillSaveName) {
       // axios.defaults.baseURL = process.env.VUE_APP_API_ENDPOINT
       const skillParams = {
         skill: {
@@ -112,16 +77,20 @@ export default {
         }
       }
       await this.$store.dispatch('skill/updateSkill', { skillId, skillParams })
-      this.$emit('openSaveSkill')
+      this.$emit('openSaveSkill', skillSaveName)
     },
-    async deleteSkill (skillId) {
+    async deleteSkill (skillId, skillDeleteName) {
       if (confirm('削除しますか？')) {
         await this.$store.dispatch('skill/deleteSkill', skillId)
-        this.$emit('openDeleteSkill')
+        this.$emit('openDeleteSkill', skillDeleteName)
       }
     },
-    openCreateSkill () {
-      this.$emit('openCreateSkill')
+    toCreateSkill (skillTypeId, skillTypeName) {
+      // this.$router.push('/createskill')
+      this.$router.push({
+        name: 'CreateSkill',
+        params: { skill_type_id: skillTypeId, skill_type_name: skillTypeName }
+      })
     }
   }
 }

@@ -3,7 +3,7 @@
     <div class="modal-wrapper">
       <div class="modal-container">
         <p class="modal-text">
-          {スキル名} の習得レベルを保存しました！
+          {{ skillSaveName }} の習得レベルを保存しました！
         </p>
         <button class="modal-button" @click="closeSaveSkill">
           スキル編集ページに戻る
@@ -15,6 +15,9 @@
 
 <script>
 export default {
+  props: [
+    'skillSaveName'
+  ],
   methods: {
     closeSaveSkill () {
       this.$emit('closeSaveSkill')
@@ -41,6 +44,10 @@ export default {
 }
 
 .modal-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   margin: 0 auto;
   padding: 0px;
   gap: 40px;

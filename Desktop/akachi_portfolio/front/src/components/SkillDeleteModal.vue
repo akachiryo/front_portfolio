@@ -3,7 +3,7 @@
     <div class="modal-wrapper">
       <div class="modal-container">
         <p class="modal-text">
-          {スキル名} の項目を削除しました！
+          {{ skillDeleteName}} の項目を削除しました！
         </p>
         <button class="modal-button" @click="closeDeleteSkill">
           スキル編集ページに戻る
@@ -15,6 +15,7 @@
 
 <script>
 export default {
+  props: ['skillDeleteName'],
   methods: {
     closeDeleteSkill () {
       this.$emit('closeDeleteSkill')
@@ -41,6 +42,10 @@ export default {
 }
 
 .modal-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   margin: 0 auto;
   padding: 0px;
   gap: 40px;

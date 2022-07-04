@@ -3,8 +3,8 @@
     <div class="modal-wrapper">
       <div class="modal-container">
         <p class="modal-text">
-          {カテゴリー名} に {スキル名} を<br>
-          習得レベル {習得レベル} で追加しました！
+          {{ skillTypeName }} に {{ skillCreateName }} を<br>
+          習得レベル {{ skillCreateLevel }} で追加しました！
         </p>
         <button class="modal-button" @click="closeCreateSkill">
           スキル編集ページに戻る
@@ -16,6 +16,11 @@
 
 <script>
 export default {
+  props: [
+    'skillTypeName',
+    'skillCreateName',
+    'skillCreateLevel'
+  ],
   methods: {
     closeCreateSkill () {
       this.$emit('closeCreateSkill')
@@ -42,6 +47,10 @@ export default {
 }
 
 .modal-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   margin: 0 auto;
   padding: 0px;
   gap: 40px;
