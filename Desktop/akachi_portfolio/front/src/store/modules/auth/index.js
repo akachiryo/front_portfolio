@@ -27,7 +27,7 @@ const mutations = {
 
 const actions = {
   async login ({ commit }, sessionParams) {
-    axios.defaults.baseURL = process.env.VUE_APP_API_ENDPOIN
+    axios.defaults.baseURL = process.env.VUE_APP_API_ENDPOINT
     const res = await axios.post('/api/session', sessionParams)
     commit('SET_CURRENT_USER', res.data)
   },
