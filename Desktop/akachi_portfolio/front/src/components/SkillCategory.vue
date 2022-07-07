@@ -70,7 +70,6 @@ export default {
   methods: {
     ...mapActions(['fetchSkillTypes']),
     async updateSkill (skillId, skillLevel, skillSaveName) {
-      // axios.defaults.baseURL = process.env.VUE_APP_API_ENDPOINT
       const skillParams = {
         skill: {
           level: skillLevel
@@ -86,7 +85,6 @@ export default {
       }
     },
     toCreateSkill (skillTypeId, skillTypeName) {
-      // this.$router.push('/createskill')
       this.$router.push({
         name: 'CreateSkill',
         params: { skill_type_id: skillTypeId, skill_type_name: skillTypeName }

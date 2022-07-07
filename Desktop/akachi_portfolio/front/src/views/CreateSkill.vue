@@ -67,13 +67,13 @@ export default {
   },
   methods: {
     async createSkill () {
-      // axios.defaults.baseURL = process.env.VUE_APP_API_ENDPOINT
+      axios.defaults.baseURL = process.env.VUE_APP_API_ENDPOINT
       const skill = {
         skill_type_id: this.skill_type_id,
         name: this.skill.name,
         level: this.skill.level
       }
-      await axios.post('http://localhost:3000/api/skills', skill)
+      await axios.post('/api/skills', skill)
       this.$store.dispatch('skill/fetchSkillTypes')
       this.$router.push({
         name: 'SkillEdit',

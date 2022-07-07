@@ -63,7 +63,7 @@ export default {
           image: this.user.avatar
         }
       }
-      this.$store.dispatch('auth/updateProfile', userParams)
+      this.$store.dispatch('auth/updateProfile', userParams, this.user.id)
       this.$router.push('/')
     },
     selectedFile (e) {

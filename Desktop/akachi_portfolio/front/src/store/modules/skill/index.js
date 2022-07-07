@@ -18,18 +18,18 @@ const mutations = {
 
 const actions = {
   async fetchSkillTypes ({ commit }) {
-    // axios.defaults.baseURL = process.env.VUE_APP_API_ENDPOIN
-    const res = await axios.get('http://localhost:3000/api/skill_types/1')
+    axios.defaults.baseURL = process.env.VUE_APP_API_ENDPOINT
+    const res = await axios.get('/api/skill_types/1')
     commit('SET_SKILL_TYPES', res.data)
   },
   async updateSkill ({ commit }, { skillId, skillParams }) {
-    // axios.defaults.baseURL = process.env.VUE_APP_API_ENDPOINT
-    const res = await axios.patch(`http://localhost:3000/api/skills/${skillId}`, skillParams)
+    axios.defaults.baseURL = process.env.VUE_APP_API_ENDPOINT
+    const res = await axios.patch(`/api/skills/${skillId}`, skillParams)
     commit('SET_SKILL_TYPES', res.data)
   },
   async deleteSkill ({ commit }, skillId) {
-    // axios.defaults.baseURL = process.env.VUE_APP_API_ENDPOINT
-    const res = await axios.delete(`http://localhost:3000/api/skills/${skillId}`)
+    axios.defaults.baseURL = process.env.VUE_APP_API_ENDPOINT
+    const res = await axios.delete(`/api/skills/${skillId}`)
     commit('SET_SKILL_TYPES', res.data)
   }
 }

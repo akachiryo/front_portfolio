@@ -31,9 +31,9 @@ const actions = {
     const res = await axios.post('/api/session', sessionParams)
     commit('SET_CURRENT_USER', res.data)
   },
-  async updateProfile ({ commit, state }, userParams) {
+  async updateProfile ({ commit, state }, userParams, UserId) {
     axios.defaults.baseURL = process.env.VUE_APP_API_ENDPOINT
-    const res = await axios.patch('/api/users/1', userParams)
+    const res = await axios.patch('/api/users/' + UserId, userParams)
     commit('SET_CURRENT_USER', {
       ...res.data,
       ...{ token: state.currentUser.token }
