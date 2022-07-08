@@ -6,12 +6,6 @@
     >
       My Portfolio
     </p>
-    <p
-      class="header-title"
-      @click="toSkill"
-    >
-      skilledit
-    </p>
     <button class="login-button">
       <p
         class="login-button-text"
@@ -19,11 +13,9 @@
       >
         ログイン
       </p>
-      <!-- ログイン -->
     </button>
   </header>
 </template>
-
 <script>
 export default {
   methods: {
@@ -32,10 +24,6 @@ export default {
     },
     toHome () {
       this.$router.push('/')
-    },
-    toSkill () {
-      this.$store.dispatch('skill/fetchSkillTypes')
-      this.$router.push('/skilledit')
     }
   }
 }
