@@ -17,9 +17,14 @@ const mutations = {
 }
 
 const actions = {
-  async fetchSkillTypes ({ commit }) {
+  async fetchSkillTypes ({ commit }, userId) {
     axios.defaults.baseURL = process.env.VUE_APP_API_ENDPOINT
-    const res = await axios.get('/api/skill_types/1')
+    const res = await axios.get(`/api/skill_types/${userId}`)
+    commit('SET_SKILL_TYPES', res.data)
+  },
+  async createSkill ({ commit }, skillParams) {
+    axios.defaults.baseURL = process.env.VUE_APP_API_ENDPOINT
+    const res = await axios.post('/api/skills', skillParams)
     commit('SET_SKILL_TYPES', res.data)
   },
   async updateSkill ({ commit }, { skillId, skillParams }) {

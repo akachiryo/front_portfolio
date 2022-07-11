@@ -36,7 +36,8 @@ export default {
   },
   methods: {
     toSkillEditPage () {
-      this.$store.dispatch('skill/fetchSkillTypes')
+      const userId = this.$store.getters['auth/currentUser'].id
+      this.$store.dispatch('skill/fetchSkillTypes', userId)
       this.$router.push('/skilledit')
     }
   }

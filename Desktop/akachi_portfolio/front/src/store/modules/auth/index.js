@@ -14,7 +14,7 @@ const mutations = {
   SET_CURRENT_USER: (state, data) => {
     state.currentUser = data
     localStorage.setItem('currentUser', JSON.stringify(data))
-    axios.defaults.headers.common.Authorization = `Bearer ${data.token}`
+    axios.defaults.headers.common['Authorization'] = `Bearer ${data.token}` // eslint-disable-line
   },
   CLEAR_CURRENT_USER: () => {
     localStorage.removeItem('currentUser')

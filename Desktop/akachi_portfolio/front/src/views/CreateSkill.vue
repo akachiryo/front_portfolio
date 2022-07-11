@@ -51,7 +51,7 @@
 </template>
 
 <script>
-import axios from 'axios'
+// import axios from 'axios'
 export default {
   props: [
     'skill_type_id',
@@ -66,15 +66,32 @@ export default {
     }
   },
   methods: {
-    async createSkill () {
-      axios.defaults.baseURL = process.env.VUE_APP_API_ENDPOINT
+    // async createSkill () {
+    //   axios.defaults.baseURL = process.env.VUE_APP_API_ENDPOINT
+    //   const skill = {
+    //     skill_type_id: this.skill_type_id,
+    //     name: this.skill.name,
+    //     level: this.skill.level
+    //   }
+    //   await axios.post('/api/skills', skill)
+    //   this.$store.dispatch('skill/fetchSkillTypes')
+    //   this.$router.push({
+    //     name: 'SkillEdit',
+    //     params: {
+    //       createModal: true,
+    //       skillTypeName: this.skill_type_name,
+    //       skillCreateName: this.skill.name,
+    //       skillCreateLevel: this.skill.level
+    //     }
+    //   })
+    // },
+    createSkill () {
       const skill = {
         skill_type_id: this.skill_type_id,
         name: this.skill.name,
         level: this.skill.level
       }
-      await axios.post('/api/skills', skill)
-      this.$store.dispatch('skill/fetchSkillTypes')
+      this.$store.dispatch('skill/createSkill', skill)
       this.$router.push({
         name: 'SkillEdit',
         params: {
