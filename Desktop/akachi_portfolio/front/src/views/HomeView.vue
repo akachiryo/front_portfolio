@@ -1,18 +1,32 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+  <div class="profile">
+    <AppProfile />
+    <AppChart />
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from "@/components/HelloWorld.vue";
+import AppProfile from '../components/AppProfile.vue'
+import AppChart from '../components/AppChart.vue'
 
 export default {
-  name: "HomeView",
+  name: 'HomeView',
   components: {
-    HelloWorld,
-  },
-};
+    AppProfile,
+    AppChart
+  }
+}
 </script>
+
+<style>
+.profile {
+  /* Auto layout */
+  /* display: flex; */
+  /* flex-direction: column; */
+  /* align-items: flex-start; */
+  padding: 0px;
+  gap: 120px;
+  width: 1046px;
+  height: 1118px;
+}
+</style>

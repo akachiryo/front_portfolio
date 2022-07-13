@@ -1,16 +1,30 @@
 <template>
   <div id="app">
-    <nav>
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </nav>
-    <router-view />
+    <AppHeader />
+    <main>
+      <wrapper>
+        <router-view />
+      </wrapper>
+      <AppFooter />
+    </main>
   </div>
 </template>
 
+<script>
+import AppHeader from './components/AppHeader.vue'
+import AppFooter from './components/AppFooter.vue'
+
+export default {
+  components: {
+    AppHeader,
+    AppFooter
+  }
+}
+</script>
+
 <style lang="scss">
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: Roboto, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
@@ -28,5 +42,33 @@ nav {
       color: #42b983;
     }
   }
+}
+
+main {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 80px 0px;
+  position: absolute;
+  width: 1440px;
+  height: 1278px;
+  left: 0px;
+  top: 120px;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-center;
+  padding: 0px;
+  gap: 120px;
+  width: 1046px;
+  height: 1118px;
+  /* Inside auto layout */
+  flex: none;
+  order: 0;
+  align-self: stretch;
+  flex-grow: 0;
 }
 </style>
